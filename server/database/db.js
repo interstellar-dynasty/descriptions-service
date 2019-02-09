@@ -18,17 +18,28 @@ const Items = mongoose.model('Items', schema)
 
 console.log('is the database connected?')
 
-
-const seed = () => {
-  seeder((datas) => {
-    Items.insertMany(datas)
-    .then(() => {
-      console.log('successfully added data to the database!')
-    })
-    .catch(err => console.log('could not put data into mongo', err))
+const getItem = (callback) => {
+  Items.findOne( {"title": "祖神に選ばれし者" }, function(err, one) {
+    if (err) {
+      console.log('error finding One from database', err);
+    } else {
+      console.log('what is this?', one);
+      callback(err, one)
+    }
   })
 }
 
+
+// const seed = () => {
+//   seeder((datas) => {
+//     Items.insertMany(datas)
+//     .then(() => {
+//       console.log('successfully added data to the database!')
+//     })
+//     .catch(err => console.log('could not put data into mongo', err))
+//   })
+// }
+
 module.exports = {
-  seed
+  getItem
 }
