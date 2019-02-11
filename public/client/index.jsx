@@ -11,10 +11,6 @@ class Descriptions extends React.Component {
     }
   }
 
-  getit () {
-    
-  }
-
   componentDidMount () {
     Axios.get('/desc')
     .then((datas) => {
