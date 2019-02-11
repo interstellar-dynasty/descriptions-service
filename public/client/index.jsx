@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Axios from 'axios';
+import Descriptions from './description.jsx';
+import SimilarItems from './similarItems.jsx';
 
 class App extends React.Component {
   constructor(props) {
@@ -9,7 +11,12 @@ class App extends React.Component {
   render() {
     return (
     <div>
-      <Descriptions />
+      <div>
+        <Descriptions />
+      </div>
+      <div>
+        <SimilarItems />
+      </div>
     </div>
   )}
 }
