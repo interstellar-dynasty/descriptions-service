@@ -17,7 +17,7 @@ const stylesParent = {
   gridColumnGap: '20px',
   gridRowGap: '10px',
   justifyItems: 'center'
-}
+};
 
 const stylesDivider = {
   width: '100%',
@@ -26,13 +26,22 @@ const stylesDivider = {
   gridRowStart: 30,
   borderStyle: 'solid',
   borderWidth: '0.5px'
-}
+};
+
+const stylesHeader = {
+  gridRowStart: 31,
+  gridColumnStart: 2,
+  justifySelf: 'start',
+  color: '#c60',
+  fontSize: '16px',
+  fontFamily: 'verdana,arial,helvetica,sans-serif'
+};
 
 const stylesItems = {
   gridColumnStart: 2,
-  gridRowStart: 32,
+  gridRowStart: 33,
   justifySelf: 'center'
-}
+};
 
 class SimilarItems extends React.Component {
   constructor(props) {
@@ -45,6 +54,7 @@ class SimilarItems extends React.Component {
     return (
     <div style={stylesParent}>
       <hr style={stylesDivider}></hr>
+      <h2 style={stylesHeader}>Customers also shopped for</h2>
       <div style={stylesItems}>
         <Item /> <Item /> <Item /> <Item /> <Item /> <Item />
       </div>
