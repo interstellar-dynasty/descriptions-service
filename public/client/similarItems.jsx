@@ -1,10 +1,3 @@
-//write a customers who viewed this item also viewed
-  //~ 7 other items
-  //stretch case: arrows that allow scrolling to other items in the database
-
-//use this page to pull from the database,
-//map onto a smaller stateless component
-//each should be a div --7 other items
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Item from './item.jsx';
