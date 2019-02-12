@@ -17,7 +17,8 @@ const stylesTitle = {
 
 const stylesDesc = {
   gridColumnStart: 2,
-  gridRowStart: 2
+  gridRowStart: 2,
+  justifySelf: 'start'
 }
 
 class Descriptions extends React.Component {
@@ -25,7 +26,9 @@ class Descriptions extends React.Component {
     super(props)
     this.state = {
       title: '',
-      text: ''
+      text: '',
+      flavor: '',
+      multiverseId: ''
     }
   }
 
@@ -34,9 +37,14 @@ class Descriptions extends React.Component {
     .then((datas) => {
       let title = datas.data.title;
       let text = datas.data.text;
+      let flavor = datas.data.flavor;
+      let multiverseId = datas.data.multiverseId;
+
       this.setState({
         title: title,
-        text: text
+        text: text,
+        flavor: flavor,
+        multiverseId: multiverseId
       })
     }).catch((err) => console.log('oh no there was an error in Axios request', err))
   }
@@ -45,7 +53,19 @@ class Descriptions extends React.Component {
     return (
     <div style={stylesParent}>
       <h2 style={stylesTitle}>{this.state.title}</h2>
-      <div style={stylesDesc}>{this.state.text}</div>
+      <div style={stylesDesc}>
+        <ul>
+          <li>
+            {this.state.text}
+          </li>
+          <li>
+            {this.state.flavor}
+          </li>
+          <li>
+            {this.state.multiverseId}
+          </li>
+        </ul>
+      </div>
     </div>
     )}
 }

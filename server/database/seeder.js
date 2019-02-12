@@ -15,10 +15,13 @@ const seeder = (callback) => {
         let card = cards[i];
         for(let k = 0; k < card.foreignNames.length; k++) { 
           let foreign = card.foreignNames[k];
+          console.log(foreign)
           datas.push({
             key: counter,
             title: foreign.name,
-            text: foreign.text
+            text: foreign.text,
+            flavor: foreign.flavor,
+            multiverseId: foreign.multiverseid
           })
           counter++;
           //console.log('counter: ', counter)
@@ -29,6 +32,7 @@ const seeder = (callback) => {
     }
   })
 }
+
 
 module.exports = {
   seeder
