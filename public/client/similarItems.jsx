@@ -11,7 +11,7 @@ import Axios from 'axios';
 
 const stylesParent = {
   display: 'grid',
-  gridTemplateColumns: '15% auto auto auto  15%',
+  gridTemplateColumns: 'auto auto auto auto auto auto auto',
   gridTemplateRows: 'auto auto auto auto auto',
   justifyItems: 'center'
 }
@@ -50,4 +50,5 @@ class SimilarItems extends React.Component {
     </div>
   )}
 }
+
 export default SimilarItems;

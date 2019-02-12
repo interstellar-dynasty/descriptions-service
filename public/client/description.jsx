@@ -12,7 +12,7 @@ const stylesParent = {
 const stylesTitle = {
   gridColumnStart: 2,
   gridRowStart: 1,
-  justifySelf: 'end'
+  justifySelf: 'start'
 }
 
 const stylesDesc = {
