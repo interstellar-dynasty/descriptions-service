@@ -12,15 +12,17 @@ import Axios from 'axios';
 
 const stylesParent = {
   display: 'grid',
-  //gridAutoFlow: 'column',
-  gridTemplateColumns: '100px 100px 100px 100px 100px 100px',
-  // gridTemplateRows: 'auto auto auto auto auto',
-  gridColumnGap: '10px',
+  gridTemplateColumns: '15% auto 15%',
+  gridAutoFlow: 'row',
+  gridColumnGap: '20px',
+  gridRowGap: '10px',
   justifyItems: 'center'
 }
 
 const stylesItems = {
-  
+  gridColumnStart: 2,
+  //gridRowStart: 20,
+  justifySelf: 'center'
 }
 
 class SimilarItems extends React.Component {
@@ -32,8 +34,10 @@ class SimilarItems extends React.Component {
   }
   render() {
     return (
-    <div styles={stylesParent}>
-      <Item /> <Item /> <Item /> <Item /> <Item /> <Item />
+    <div style={stylesParent}>
+      <div style={stylesItems}>
+        <Item /> <Item /> <Item /> <Item /> <Item /> <Item />
+      </div>
     </div>
   )}
 }
