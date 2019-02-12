@@ -7,7 +7,7 @@ class Item extends React.Component {
 
   render() {
     return (
-      <img src="http://placekitten.com/100/200"></img>
+      <img src="http://placekitten.com/200/300"></img>
     )
   }
 }

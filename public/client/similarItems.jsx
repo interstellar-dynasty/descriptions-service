@@ -12,16 +12,25 @@ import Axios from 'axios';
 
 const stylesParent = {
   display: 'grid',
-  gridTemplateColumns: '15% auto 15%',
+  gridTemplateColumns: '5% auto 5%',
   gridAutoFlow: 'row',
   gridColumnGap: '20px',
   gridRowGap: '10px',
   justifyItems: 'center'
 }
 
+const stylesDivider = {
+  width: '100%',
+  borderColor: 'grey',
+  gridColumnStart: 2,
+  gridRowStart: 30,
+  borderStyle: 'solid',
+  borderWidth: '0.5px'
+}
+
 const stylesItems = {
   gridColumnStart: 2,
-  //gridRowStart: 20,
+  gridRowStart: 32,
   justifySelf: 'center'
 }
 
@@ -35,6 +44,7 @@ class SimilarItems extends React.Component {
   render() {
     return (
     <div style={stylesParent}>
+      <hr style={stylesDivider}></hr>
       <div style={stylesItems}>
         <Item /> <Item /> <Item /> <Item /> <Item /> <Item />
       </div>
