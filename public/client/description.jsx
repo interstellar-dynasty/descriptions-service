@@ -12,7 +12,8 @@ const stylesParent = {
 const stylesTitle = {
   gridColumnStart: 2,
   gridRowStart: 1,
-  justifySelf: 'start'
+  justifySelf: 'start',
+  fontWeight: 400,
 }
 
 const stylesDesc = {
@@ -52,7 +53,7 @@ class Descriptions extends React.Component {
   render() {
     return (
     <div style={stylesParent}>
-      <h2 style={stylesTitle}>{this.state.title}</h2>
+      <h1 style={stylesTitle}>{this.state.title}</h1>
       <div style={stylesDesc}>
         <ul>
           <li>

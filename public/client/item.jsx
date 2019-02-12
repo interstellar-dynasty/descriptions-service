@@ -3,6 +3,10 @@ import React from 'react';
 class Item extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      key: 0,
+      url: ''
+    }
   }
 
   render() {
@@ -13,3 +17,6 @@ class Item extends React.Component {
 }
 
 export default Item;
+
+//add a click handler
+//on click take to whatever id is associated with the state of this image
