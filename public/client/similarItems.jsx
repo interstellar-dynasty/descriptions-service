@@ -9,6 +9,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Axios from 'axios';
 
+const stylesParent = {
+  display: 'grid',
+  gridTemplateColumns: '15% auto auto auto  15%',
+  gridTemplateRows: 'auto auto auto auto auto',
+  justifyItems: 'center'
+}
+
 class SimilarItems extends React.Component {
   constructor(props) {
     super(props)
@@ -18,30 +25,29 @@ class SimilarItems extends React.Component {
   }
   render() {
     return (
-    <div>
+    <div styles={stylesParent}>
       <div>
-        <img src="http://placekitten.com/g/200/300"></img>
+      <img src="http://placekitten.com/100/200"></img>
       </div>
       <div>
-      <img src="http://placekitten.com/g/200/300"></img>
+      <img src="http://placekitten.com/g/100/200"></img>
       </div>
       <div>
-      <img src="http://placekitten.com/g/200/300"></img>
+      <img src="http://placekitten.com/100/200"></img>
       </div>
       <div>
-      <img src="http://placekitten.com/g/200/300"></img>
+      <img src="http://placekitten.com/g/100/200"></img>
       </div>
       <div>
-      <img src="http://placekitten.com/g/200/300"></img>
+      <img src="http://placekitten.com/100/200"></img>
       </div>
       <div>
-      <img src="http://placekitten.com/g/200/300"></img>
+      <img src="http://placekitten.com/g/100/200"></img>
       </div>
       <div>
-      <img src="http://placekitten.com/g/200/300"></img>
+      <img src="http://placekitten.com/100/200"></img>
       </div>
     </div>
   )}
 }
-
 export default SimilarItems;

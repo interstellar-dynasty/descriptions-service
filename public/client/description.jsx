@@ -2,6 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Axios from 'axios';
 
+const stylesParent = {
+  display: 'grid',
+  gridTemplateColumns: '35% auto 35%',
+  gridTemplateRows: 'auto auto auto auto auto',
+  justifyItems: 'center'
+}
+
+const stylesTitle = {
+  gridColumnStart: 2,
+  gridRowStart: 1,
+  justifySelf: 'end'
+}
+
+const stylesDesc = {
+  gridColumnStart: 2,
+  gridRowStart: 2
+}
+
 class Descriptions extends React.Component {
   constructor(props) {
     super(props)
@@ -25,9 +43,9 @@ class Descriptions extends React.Component {
 
   render() {
     return (
-    <div>
-      <h2>{this.state.title}</h2>
-      <div>{this.state.text}</div>
+    <div style={stylesParent}>
+      <h2 style={stylesTitle}>{this.state.title}</h2>
+      <div style={stylesDesc}>{this.state.text}</div>
     </div>
     )}
 }
