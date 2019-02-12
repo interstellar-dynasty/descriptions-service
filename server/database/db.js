@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 const seeder = require('./seeder.js').seeder
-//mongoose.connect('mongodb://localhost/descriptions', { useNewUrlParser: true }); //local
-mongoose.connect('mongodb://test:testing123@ds127655.mlab.com:27655/descriptions', { useNewUrlParser: true }) //mLab
+mongoose.connect('mongodb://localhost/descriptions', { useNewUrlParser: true }); //local
+//mongoose.connect('mongodb://test:testing123@ds127655.mlab.com:27655/descriptions', { useNewUrlParser: true }) //mLab
 let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
@@ -10,6 +10,7 @@ db.once('open', function() {
 });
 
 const schema = new mongoose.Schema({ 
+  key: 'Number',
   title: 'String',
   text: 'String'
 })
@@ -18,8 +19,12 @@ const Items = mongoose.model('Items', schema)
 
 console.log('is the database connected?')
 
+const random = () => {
+  return Math.floor(Math.random() * Math.floor(100));
+}
+
 const getItem = (callback) => {
-  Items.findOne( {"title": "祖神に選ばれし者" }, function(err, one) {
+  Items.findOne( {"key": random() }, function(err, one) {
     if (err) {
       console.log('error finding One from database', err);
     } else {
@@ -42,4 +47,5 @@ const getItem = (callback) => {
 
 module.exports = {
   getItem
+  //seed
 }

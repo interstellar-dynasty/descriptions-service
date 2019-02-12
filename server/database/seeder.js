@@ -10,18 +10,18 @@ const seeder = (callback) => {
       let cards = results.cards;
  
       let datas = [];
+      let counter = 0;
       for (let i = 0; i < 15; i++) { //cards.length
         let card = cards[i];
-        // datas.push({
-        //   title: card.name,
-        //   text: card.text
-        // })
         for(let k = 0; k < card.foreignNames.length; k++) { 
           let foreign = card.foreignNames[k];
           datas.push({
+            key: counter,
             title: foreign.name,
             text: foreign.text
           })
+          counter++;
+          //console.log('counter: ', counter)
         }
         //console.log('datas here', datas)
       }
