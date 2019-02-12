@@ -7,13 +7,20 @@
 //each should be a div --7 other items
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Item from './item.jsx';
 import Axios from 'axios';
 
 const stylesParent = {
   display: 'grid',
-  gridTemplateColumns: 'auto auto auto auto auto auto auto',
-  gridTemplateRows: 'auto auto auto auto auto',
+  //gridAutoFlow: 'column',
+  gridTemplateColumns: '100px 100px 100px 100px 100px 100px',
+  // gridTemplateRows: 'auto auto auto auto auto',
+  gridColumnGap: '10px',
   justifyItems: 'center'
+}
+
+const stylesItems = {
+  
 }
 
 class SimilarItems extends React.Component {
@@ -26,27 +33,7 @@ class SimilarItems extends React.Component {
   render() {
     return (
     <div styles={stylesParent}>
-      <div>
-      <img src="http://placekitten.com/100/200"></img>
-      </div>
-      <div>
-      <img src="http://placekitten.com/g/100/200"></img>
-      </div>
-      <div>
-      <img src="http://placekitten.com/100/200"></img>
-      </div>
-      <div>
-      <img src="http://placekitten.com/g/100/200"></img>
-      </div>
-      <div>
-      <img src="http://placekitten.com/100/200"></img>
-      </div>
-      <div>
-      <img src="http://placekitten.com/g/100/200"></img>
-      </div>
-      <div>
-      <img src="http://placekitten.com/100/200"></img>
-      </div>
+      <Item /> <Item /> <Item /> <Item /> <Item /> <Item />
     </div>
   )}
 }
