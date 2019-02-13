@@ -5,7 +5,7 @@ import Axios from 'axios';
 const stylesParent = {
   display: 'grid',
   gridTemplateColumns: '50% auto 20%',
-  gridTemplateRows: '60px 10px 400px',
+  gridAutoFlow: 'row',
   justifyItems: 'center'
 }
 
