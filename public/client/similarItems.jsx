@@ -40,16 +40,28 @@ class SimilarItems extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-
     }
   }
+
+  renderItem () {
+    let newItem = this.props.newItem
+    return(
+      <Item newItem={newItem}/>
+    )
+  }
+  
   render() {
     return (
     <div style={stylesParent}>
       <hr style={stylesDivider}></hr>
       <h2 style={stylesHeader}>Customers also shopped for</h2>
       <div style={stylesItems}>
-        <Item /> <Item /> <Item /> <Item /> <Item /> <Item />
+        {this.renderItem()}
+        {this.renderItem()}
+        {this.renderItem()}
+        {this.renderItem()}
+        {this.renderItem()}
+        {this.renderItem()}
       </div>
     </div>
   )}

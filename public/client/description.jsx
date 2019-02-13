@@ -34,49 +34,7 @@ const stylesDesc = {
 class Descriptions extends React.Component {
   constructor(props) {
     super(props)
-    // this.state = {
-    //   title: '',
-    //   text: '',
-    //   flavor: '',
-    //   multiverseId: ''
-    // }
   }
-
-  // componentDidMount () {
-  //   Axios.get('/desc')
-  //   .then((datas) => {
-  //     let title = datas.data.title;
-  //     let text = datas.data.text;
-  //     let flavor = datas.data.flavor;
-  //     let multiverseId = datas.data.multiverseId;
-
-  //     this.setState({
-  //       title: title,
-  //       text: text,
-  //       flavor: flavor,
-  //       multiverseId: multiverseId
-  //     })
-  //   }).catch((err) => console.log('oh no there was an error in Axios request', err))
-  // }
-
-  newItem () {
-    Axios.get('/desc')
-    .then((results) => {
-      let title = results.data.title
-      let text = results.data.text;
-      let flavor = results.data.flavor;
-      let multiverseId = results.data.multiverseId;
-
-      this.setState({
-        title: title,
-        text: text,
-        flavor: flavor,
-        multiverseId: multiverseId
-      })
-    }).catch((err) => console.log('err in newItem Axios request', err))
-  }
-
-  //similarItem = newItem.bind(this);
 
   render() {
     return (

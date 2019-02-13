@@ -33,6 +33,20 @@ class App extends React.Component {
     }).catch((err) => console.log('oh no there was an error in Axios request', err))
   }
 
+  newItem (results) {
+    let title = results.data.title;
+    let text = results.data.text;
+    let flavor = results.data.flavor;
+    let multiverseId = results.data.multiverseId;
+
+    this.setState({
+      title: title,
+      text: text,
+      flavor: flavor,
+      multiverseId: multiverseId
+    })
+  }
+
   render() {
     return (
     <div>
@@ -44,7 +58,7 @@ class App extends React.Component {
         multiverseId={this.state.multiverseId}/>
       </div>
       <div>
-        <SimilarItems />
+        <SimilarItems newItem={this.newItem.bind(this)}/>
       </div>
     </div>
   )}
