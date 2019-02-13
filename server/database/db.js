@@ -30,27 +30,35 @@ const getItem = (callback) => {
       console.log('error finding One from database', err);
     } else {
       //console.log('what is this?', one);
-      callback(err, one)
+      callback(err, one);
     }
   })
 }
 
-// const getnewItem = (callback) => {
-//   Items.findOne( {"key":})
-// }
+const getNewItem = (key, callback) => {
+  key = parseInt(key);
+  Items.findOne( {"key": key}, function(err, newOne) {
+    if (err) {
+      console.log('error finding key from database', err);
+    } else {
+      callback(err, newOne);
+    }
+  })
+}
 
 
 const seed = () => {
   seeder((datas) => {
     Items.insertMany(datas)
     .then(() => {
-      console.log('successfully added data to the database!')
+      console.log('successfully added data to the database!');
     })
     .catch(err => console.log('could not put data into mongo', err))
   })
 }
 
 module.exports = {
-  getItem
+  getItem,
+  getNewItem
   //seed
 }
