@@ -6,7 +6,6 @@ let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log('we\'re connected!');
-  // we're connected!
 });
 
 const schema = new mongoose.Schema({ 
@@ -30,11 +29,15 @@ const getItem = (callback) => {
     if (err) {
       console.log('error finding One from database', err);
     } else {
-      console.log('what is this?', one);
+      //console.log('what is this?', one);
       callback(err, one)
     }
   })
 }
+
+// const getnewItem = (callback) => {
+//   Items.findOne( {"key":})
+// }
 
 
 const seed = () => {

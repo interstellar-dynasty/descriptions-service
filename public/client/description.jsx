@@ -50,6 +50,25 @@ class Descriptions extends React.Component {
     }).catch((err) => console.log('oh no there was an error in Axios request', err))
   }
 
+  newItem () {
+    Axios.get('/desc')
+    .then((results) => {
+      let title = results.data.title
+      let text = results.data.text;
+      let flavor = results.data.flavor;
+      let multiverseId = results.data.multiverseId;
+
+      this.setState({
+        title: title,
+        text: text,
+        flavor: flavor,
+        multiverseId: multiverseId
+      })
+    }).catch((err) => console.log('err in newItem Axios request', err))
+  }
+
+  //similarItem = newItem.bind(this);
+
   render() {
     return (
     <div style={stylesParent}>
