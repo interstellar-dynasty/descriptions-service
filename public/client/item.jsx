@@ -8,6 +8,8 @@ class Item extends React.Component {
       key: 0
     }
   }
+  //need to lift this state up so that related items re-renders with each click.
+  //best idea is to call this get request and send the key down in props each time
 
   componentDidMount () {
     Axios.get('/desc')
@@ -21,13 +23,8 @@ class Item extends React.Component {
     .catch((err) => console.log('oh no there was an error in Axios request', err))
   }
 
-  //callback could be this.props.function
 
   requestItem (e) {
-    //this request works for each key
-    //now each service just needs a bucket to pull the data to their respective state
-    //we need a callback on the axios request data that goes to each service
-      //ideally this action will have multiple Axios requests
     e.preventDefault()
     let url = `/desc/${this.state.key}`;
     console.log(`you clicked key ${this.state.key}`);
@@ -47,6 +44,3 @@ class Item extends React.Component {
 }
 
 export default Item;
-
-//add a click handler
-//on click take to whatever id is associated with the state of this image

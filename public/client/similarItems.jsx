@@ -16,14 +16,14 @@ const stylesDivider = {
   width: '100%',
   borderColor: 'grey',
   gridColumnStart: 2,
-  gridRowStart: 30,
+  gridRowStart: 4,
   borderStyle: 'solid',
   borderWidth: '0.5px'
 };
 
 const stylesHeader = {
-  gridRowStart: 31,
   gridColumnStart: 2,
+  gridRowStart: 5,
   justifySelf: 'start',
   color: '#c60',
   fontSize: '16px',
@@ -32,7 +32,7 @@ const stylesHeader = {
 
 const stylesItems = {
   gridColumnStart: 2,
-  gridRowStart: 33,
+  gridRowStart: 6,
   justifySelf: 'center'
 };
 
@@ -43,10 +43,22 @@ class SimilarItems extends React.Component {
     }
   }
 
+  getKey () {
+    Axios.get('/desc')
+    .then((datas) => {
+      let key = datas.data.key;
+
+      // this.setState({
+      //   key: key
+      // })
+    })
+    .catch((err) => console.log('oh no there was an error in Axios request', err))
+  }
+
   renderItem () {
-    let newItem = this.props.newItem
+    let newItem = this.props.newItem;
     return(
-      <Item newItem={newItem}/>
+      <Item newItem={newItem} getKey={this.getKey}/>
     )
   }
   
