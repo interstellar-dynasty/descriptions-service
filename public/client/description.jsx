@@ -4,10 +4,19 @@ import Axios from 'axios';
 
 const stylesParent = {
   display: 'grid',
-  gridTemplateColumns: '35% auto 35%',
-  gridTemplateRows: 'auto auto auto auto auto',
+  gridTemplateColumns: '50% auto 20%',
+  gridTemplateRows: 'auto auto auto auto auto auto auto',
   justifyItems: 'center'
 }
+
+const stylesDivider = {
+  width: '100%',
+  borderColor: 'grey',
+  gridColumnStart: 2,
+  gridRowStart: 2,
+  borderStyle: 'solid',
+  borderWidth: '0.5px'
+};
 
 const stylesTitle = {
   gridColumnStart: 2,
@@ -18,37 +27,37 @@ const stylesTitle = {
 
 const stylesDesc = {
   gridColumnStart: 2,
-  gridRowStart: 2,
+  gridRowStart: 3,
   justifySelf: 'start'
 }
 
 class Descriptions extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      title: '',
-      text: '',
-      flavor: '',
-      multiverseId: ''
-    }
+    // this.state = {
+    //   title: '',
+    //   text: '',
+    //   flavor: '',
+    //   multiverseId: ''
+    // }
   }
 
-  componentDidMount () {
-    Axios.get('/desc')
-    .then((datas) => {
-      let title = datas.data.title;
-      let text = datas.data.text;
-      let flavor = datas.data.flavor;
-      let multiverseId = datas.data.multiverseId;
+  // componentDidMount () {
+  //   Axios.get('/desc')
+  //   .then((datas) => {
+  //     let title = datas.data.title;
+  //     let text = datas.data.text;
+  //     let flavor = datas.data.flavor;
+  //     let multiverseId = datas.data.multiverseId;
 
-      this.setState({
-        title: title,
-        text: text,
-        flavor: flavor,
-        multiverseId: multiverseId
-      })
-    }).catch((err) => console.log('oh no there was an error in Axios request', err))
-  }
+  //     this.setState({
+  //       title: title,
+  //       text: text,
+  //       flavor: flavor,
+  //       multiverseId: multiverseId
+  //     })
+  //   }).catch((err) => console.log('oh no there was an error in Axios request', err))
+  // }
 
   newItem () {
     Axios.get('/desc')
@@ -72,17 +81,18 @@ class Descriptions extends React.Component {
   render() {
     return (
     <div style={stylesParent}>
-      <h1 style={stylesTitle}>{this.state.title}</h1>
+      <h1 style={stylesTitle}>{this.props.title}</h1>
+      <hr style={stylesDivider}></hr>
       <div style={stylesDesc}>
         <ul>
           <li>
-            {this.state.text}
+            {this.props.text}
           </li>
           <li>
-            {this.state.flavor}
+            {this.props.flavor}
           </li>
           <li>
-            {this.state.multiverseId}
+            {this.props.multiverseId}
           </li>
         </ul>
       </div>
