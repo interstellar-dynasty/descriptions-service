@@ -46,23 +46,16 @@ class SimilarItems extends React.Component {
     }
   }
 
+  random () {
+    return Math.floor(Math.random() * Math.floor(100));
+  }
+
   renderItem () {
-    //////////////////////////////////
-    //this stuff is giving me problems
-    //it originally lived in the item component
-    //tried lifting it up though
-    //////////////////////////////////
-    // Axios.get('/desc')
-    // .then((datas) => {
-    //   let key = datas.data.key;
-    // prop for this code
-      // itemKey={key}
     let newItem = this.props.newItem;
+    let key = this.random();
     return(
-      <Item newItem={newItem} />
+      <Item newItem={newItem} itemKey={key}/>
     )
-    // })
-    // .catch((err) => console.log('oh no there was an error in Axios request', err))
   }
 
 

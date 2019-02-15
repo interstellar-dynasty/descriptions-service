@@ -12,7 +12,8 @@ class App extends React.Component {
       title: '',
       text: '',
       flavor: '',
-      multiverseId: ''
+      multiverseId: '',
+      similarItems: <SimilarItems newItem={this.newItem.bind(this)}/>
     }
   }
 
@@ -43,7 +44,8 @@ class App extends React.Component {
       title: title,
       text: text,
       flavor: flavor,
-      multiverseId: multiverseId
+      multiverseId: multiverseId,
+      similarItems: <SimilarItems newItem={this.newItem.bind(this)}/>
     })
   }
 
@@ -58,7 +60,7 @@ class App extends React.Component {
         multiverseId={this.state.multiverseId}/>
       </div>
       <div>
-        <SimilarItems newItem={this.newItem.bind(this)}/>
+        {this.state.similarItems}
       </div>
     </div>
   )}
