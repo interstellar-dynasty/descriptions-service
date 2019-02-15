@@ -40,7 +40,37 @@ class SimilarItems extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      renderIt: () => {
+        return(
+          <div style={stylesItems}>
+            {this.renderItem()}
+            {this.renderItem()}
+            {this.renderItem()}
+            {this.renderItem()}
+            {this.renderItem()}
+            {this.renderItem()}
+          </div>
+        )
+      }
     }
+  }
+
+  reRender () {
+    console.log('see what happens now')
+    this.setState({
+      renderIt: () => {
+        return(
+          <div style={stylesItems}>
+            {this.renderItem()}
+            {this.renderItem()}
+            {this.renderItem()}
+            {this.renderItem()}
+            {this.renderItem()}
+            {this.renderItem()}
+          </div>
+        )
+      }
+    })
   }
 
   random () {
@@ -51,7 +81,7 @@ class SimilarItems extends React.Component {
     let newItem = this.props.newItem;
     let key = this.random();
     return(
-      <Item newItem={newItem} itemKey={key}/>
+      <Item newItem={newItem} itemKey={key} reRender={this.reRender.bind(this)}/>
     )
   }
 
@@ -62,14 +92,7 @@ class SimilarItems extends React.Component {
     <div style={stylesParent}>
       <hr style={stylesDivider}></hr>
       <h2 style={stylesHeader}>Customers also shopped for</h2>
-        <div style={stylesItems}>
-          {this.renderItem()}
-          {this.renderItem()}
-          {this.renderItem()}
-          {this.renderItem()}
-          {this.renderItem()}
-          {this.renderItem()}
-        </div>
+      {this.state.renderIt()}
     </div>
   )}
 }

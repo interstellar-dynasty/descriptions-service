@@ -28,6 +28,7 @@ class Item extends React.Component {
     })
     .then(() => {
       console.log('do something else, change pictures? rerender everything?')
+      this.props.reRender();
     })
     .catch((err) => console.log('error in Axios requestItem', err))
   }
