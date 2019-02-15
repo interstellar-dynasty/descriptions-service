@@ -40,41 +40,46 @@ class SimilarItems extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
+      renderIt: () => {
+        console.log('thinking about this')
+      }
     }
   }
 
-  getKey () {
-    Axios.get('/desc')
-    .then((datas) => {
-      let key = datas.data.key;
-
-      // this.setState({
-      //   key: key
-      // })
-    })
-    .catch((err) => console.log('oh no there was an error in Axios request', err))
-  }
-
   renderItem () {
+    //////////////////////////////////
+    //this stuff is giving me problems
+    //it originally lived in the item component
+    //tried lifting it up though
+    //////////////////////////////////
+    // Axios.get('/desc')
+    // .then((datas) => {
+    //   let key = datas.data.key;
+    // prop for this code
+      // itemKey={key}
     let newItem = this.props.newItem;
     return(
-      <Item newItem={newItem} getKey={this.getKey}/>
+      <Item newItem={newItem} />
     )
+    // })
+    // .catch((err) => console.log('oh no there was an error in Axios request', err))
   }
-  
+
+
+
   render() {
     return (
     <div style={stylesParent}>
       <hr style={stylesDivider}></hr>
       <h2 style={stylesHeader}>Customers also shopped for</h2>
-      <div style={stylesItems}>
-        {this.renderItem()}
-        {this.renderItem()}
-        {this.renderItem()}
-        {this.renderItem()}
-        {this.renderItem()}
-        {this.renderItem()}
-      </div>
+        <div style={stylesItems}>
+          {this.renderItem()}
+          {this.renderItem()}
+          {this.renderItem()}
+          {this.renderItem()}
+          {this.renderItem()}
+          {this.renderItem()}
+        </div>
     </div>
   )}
 }

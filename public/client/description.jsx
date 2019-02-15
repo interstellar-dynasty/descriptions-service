@@ -4,7 +4,7 @@ import Axios from 'axios';
 
 const stylesParent = {
   display: 'grid',
-  gridTemplateColumns: '50% auto 20%',
+  gridTemplateColumns: '50% auto 25%',
   gridAutoFlow: 'row',
   justifyItems: 'center'
 }

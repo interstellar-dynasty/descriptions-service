@@ -32,11 +32,15 @@ class Item extends React.Component {
     .then((results) => {
       this.props.newItem(results);
     })
+    .then(() => {
+      console.log('are we trying to reRender?')
+      //this.props.rerender()
+      //try changing state?
+    })
     .catch((err) => console.log('error in Axios requestItem', err))
   }
 
   render() {
-    let newItem = this.props.newItem;
     return (
       <img src="http://placekitten.com/200/300" onClick={this.requestItem.bind(this)}></img>
     )
