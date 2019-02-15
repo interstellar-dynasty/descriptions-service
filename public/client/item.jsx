@@ -1,6 +1,10 @@
 import React from 'react';
 import Axios from 'axios';
 
+const stylesItem = {
+  margin: '10px'
+};
+
 class Item extends React.Component {
   constructor(props) {
     super(props)
@@ -30,7 +34,7 @@ class Item extends React.Component {
 
   render() {
     return (
-      <img src={this.state.image} onClick={this.requestItem.bind(this)}></img>
+      <img src={this.state.image} style={stylesItem} onClick={this.requestItem.bind(this)}></img>
     )
   }
 }

@@ -4,10 +4,10 @@ import Item from './item.jsx';
 import Axios from 'axios';
 
 const stylesParent = {
+  margin: '1%',
   display: 'grid',
-  gridTemplateColumns: '5% auto 5%',
-  gridAutoFlow: 'row',
-  gridColumnGap: '20px',
+  gridAutoFlow: 'row column',
+  gridColumnGap: '10px',
   gridRowGap: '10px',
   justifyItems: 'center'
 };
@@ -15,14 +15,14 @@ const stylesParent = {
 const stylesDivider = {
   width: '100%',
   borderColor: 'grey',
-  gridColumnStart: 2,
+  gridColumnStart: 1,
   gridRowStart: 4,
   borderStyle: 'solid',
   borderWidth: '0.5px'
 };
 
 const stylesHeader = {
-  gridColumnStart: 2,
+  gridColumnStart: 1,
   gridRowStart: 5,
   justifySelf: 'start',
   color: '#c60',
@@ -31,7 +31,7 @@ const stylesHeader = {
 };
 
 const stylesItems = {
-  gridColumnStart: 2,
+  gridColumnStart: 1,
   gridRowStart: 6,
   justifySelf: 'center'
 };
@@ -40,9 +40,6 @@ class SimilarItems extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      renderIt: () => {
-        console.log('thinking about this')
-      }
     }
   }
 
