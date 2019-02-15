@@ -1,7 +1,5 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Item from './item.jsx';
-import Axios from 'axios';
 
 const stylesParent = {
   margin: '1%',

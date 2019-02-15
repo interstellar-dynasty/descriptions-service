@@ -8,15 +8,7 @@ const stylesItem = {
 class Item extends React.Component {
   constructor(props) {
     super(props)
-    this.state = {
-      key: 0,
-      image: "http://placekitten.com/200/200"
-    }
   }
-  //need to lift this state up so that related items re-renders with each click.
-  //best idea is to call this get request and send the key down in props each time
-
-
 
   requestItem (e) {
     e.preventDefault()
@@ -35,7 +27,7 @@ class Item extends React.Component {
 
   render() {
     return (
-      <img src={this.state.image} style={stylesItem} onClick={this.requestItem.bind(this)}></img>
+      <img src="http://placekitten.com/200/250" style={stylesItem} onClick={this.requestItem.bind(this)}></img>
     )
   }
 }
