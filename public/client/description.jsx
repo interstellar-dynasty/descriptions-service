@@ -23,12 +23,15 @@ const stylesTitle = {
   gridRowStart: 1,
   justifySelf: 'start',
   fontWeight: 400,
+  fontSize: '21px',
+  fontFamily: 'Arial,sans-serif'
 }
 
 const stylesDesc = {
   gridColumnStart: 2,
   gridRowStart: 3,
-  justifySelf: 'start'
+  justifySelf: 'start',
+  fontFamily: 'Arial,sans-serif'
 }
 
 class Descriptions extends React.Component {
