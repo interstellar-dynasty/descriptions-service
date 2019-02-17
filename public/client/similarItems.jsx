@@ -41,19 +41,19 @@ const SimilarItems = (props) => {
     return Math.floor(Math.random() * Math.floor(100));
   }
   
-    return (
-    <div style={stylesParent}>
-      <hr style={stylesDivider}></hr>
-      <h2 style={stylesHeader}>Customers also shopped for</h2>
-      <div style={stylesItems}>
-        {renderIt.map((item, i) => {
-          return(
-            <Item newItem={props.newItem} itemKey={random()} key={i} />
-          )}
+  return (
+  <div style={stylesParent}>
+    <hr style={stylesDivider}></hr>
+    <h2 style={stylesHeader}>Customers also shopped for</h2>
+    <div style={stylesItems}>
+      {renderIt.map((item, i) => {
+        return(
+          <Item newItem={props.newItem} itemKey={random()} key={i} />
         )}
-      </div>
+      )}
     </div>
-  )
+  </div>
+)
 }
 
 export default SimilarItems;

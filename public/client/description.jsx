@@ -32,31 +32,27 @@ const stylesDesc = {
   fontFamily: 'Arial,sans-serif'
 }
 
-class Descriptions extends React.Component {
-  constructor(props) {
-    super(props)
-  }
-
-  render() {
-    return (
-    <div style={stylesParent}>
-      <h1 style={stylesTitle}>{this.props.title}</h1>
-      <hr style={stylesDivider}></hr>
-      <div style={stylesDesc}>
-        <ul>
-          <li>
-            {this.props.text}
-          </li>
-          <li>
-            {this.props.flavor}
-          </li>
-          <li>
-            {this.props.multiverseId}
-          </li>
-        </ul>
-      </div>
+const Descriptions = (props) => {
+ 
+  return (
+  <div style={stylesParent}>
+    <h1 style={stylesTitle}>{props.title}</h1>
+    <hr style={stylesDivider}></hr>
+    <div style={stylesDesc}>
+      <ul>
+        <li>
+          {props.text}
+        </li>
+        <li>
+          {props.flavor}
+        </li>
+        <li>
+          {props.multiverseId}
+        </li>
+      </ul>
     </div>
-    )}
+  </div>
+  )
 }
 
 export default Descriptions;
