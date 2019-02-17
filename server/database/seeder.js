@@ -24,9 +24,7 @@ const seeder = (callback) => {
             multiverseId: foreign.multiverseid
           })
           counter++;
-          //console.log('counter: ', counter)
         }
-        //console.log('datas here', datas)
       }
       callback(datas);
     }

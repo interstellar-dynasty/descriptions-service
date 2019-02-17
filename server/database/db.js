@@ -14,11 +14,9 @@ const schema = new mongoose.Schema({
   text: 'String',
   flavor: 'String',
   multiverseId: 'String'
-})
+});
 
-const Items = mongoose.model('Items', schema)
-
-console.log('is the database connected?')
+const Items = mongoose.model('Items', schema);
 
 const random = () => {
   return Math.floor(Math.random() * Math.floor(100));
@@ -27,10 +25,10 @@ const random = () => {
 const getItem = (callback) => {
   Items.findOne( {"key": random() }, function(err, one) {
     if (err) {
-      console.log('error finding One from database', err);
+      callback(err);
     } else {
       //console.log('what is this?', one);
-      callback(err, one);
+      callback(null, one);
     }
   })
 }
@@ -39,9 +37,9 @@ const getNewItem = (key, callback) => {
   key = parseInt(key);
   Items.findOne( {"key": key}, function(err, newOne) {
     if (err) {
-      console.log('error finding key from database', err);
+      callback(err);
     } else {
-      callback(err, newOne);
+      callback(null, newOne);
     }
   })
 }
