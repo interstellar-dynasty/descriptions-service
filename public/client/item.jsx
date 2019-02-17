@@ -19,7 +19,7 @@ const Item = (props) => {
   }
 
   return (
-    <img src="http://placekitten.com/200/250" style={stylesItem} onClick={requestItem.bind(this)}></img>
+    <img src="http://placekitten.com/200/250" style={stylesItem} onClick={requestItem.bind(this)} />
   )
 }
 
