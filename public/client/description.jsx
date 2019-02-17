@@ -33,7 +33,6 @@ const stylesDesc = {
 }
 
 const Descriptions = (props) => {
- 
   return (
   <div style={stylesParent}>
     <h1 style={stylesTitle}>{props.title}</h1>
