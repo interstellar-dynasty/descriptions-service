@@ -34,65 +34,26 @@ const stylesItems = {
   justifySelf: 'center'
 };
 
-class SimilarItems extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      renderIt: () => {
-        return(
-          <div style={stylesItems}>
-            {this.renderItem()}
-            {this.renderItem()}
-            {this.renderItem()}
-            {this.renderItem()}
-            {this.renderItem()}
-            {this.renderItem()}
-          </div>
-        )
-      }
-    }
-  }
+const SimilarItems = (props) => {
+  const renderIt = [0, 1, 2, 3, 4, 5];
 
-  reRender () {
-    console.log('see what happens now')
-    this.setState({
-      renderIt: () => {
-        return(
-          <div style={stylesItems}>
-            {this.renderItem()}
-            {this.renderItem()}
-            {this.renderItem()}
-            {this.renderItem()}
-            {this.renderItem()}
-            {this.renderItem()}
-          </div>
-        )
-      }
-    })
-  }
-
-  random () {
+  const random = () => {
     return Math.floor(Math.random() * Math.floor(100));
   }
-
-  renderItem () {
-    let newItem = this.props.newItem;
-    let key = this.random();
-    return(
-      <Item newItem={newItem} itemKey={key} reRender={this.reRender.bind(this)}/>
-    )
-  }
-
-
-
-  render() {
+  
     return (
     <div style={stylesParent}>
       <hr style={stylesDivider}></hr>
       <h2 style={stylesHeader}>Customers also shopped for</h2>
-      {this.state.renderIt()}
+      <div style={stylesItems}>
+        {renderIt.map((item, i) => {
+          return(
+            <Item newItem={props.newItem} itemKey={random()} key={i} />
+          )}
+        )}
+      </div>
     </div>
-  )}
+  )
 }
 
 export default SimilarItems;

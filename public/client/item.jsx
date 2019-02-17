@@ -8,7 +8,12 @@ const stylesItem = {
 class Item extends React.Component {
   constructor(props) {
     super(props)
+    this.state = {
+      key: 0,
+      image: "http://placekitten.com/200/250"
+    }
   }
+
 
   requestItem (e) {
     e.preventDefault()
@@ -17,10 +22,6 @@ class Item extends React.Component {
     Axios.get(url)
     .then((results) => {
       this.props.newItem(results);
-    })
-    .then(() => {
-      console.log('do something else, change pictures? rerender everything?')
-      this.props.reRender();
     })
     .catch((err) => console.log('error in Axios requestItem', err))
   }
