@@ -5,32 +5,22 @@ const stylesItem = {
   margin: '10px'
 };
 
-class Item extends React.Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      key: 0,
-      image: "http://placekitten.com/200/250"
-    }
-  }
+const Item = (props) => {
 
-
-  requestItem (e) {
+  const requestItem = (e) => {
     e.preventDefault()
-    let url = `/desc/${this.props.itemKey}`;
-    console.log(`you clicked key ${this.props.itemKey}`);
+    let url = `/desc/${props.itemKey}`;
+    console.log(`you clicked key ${props.itemKey}`);
     Axios.get(url)
     .then((results) => {
-      this.props.newItem(results);
+      props.newItem(results);
     })
     .catch((err) => console.log('error in Axios requestItem', err))
   }
 
-  render() {
-    return (
-      <img src="http://placekitten.com/200/250" style={stylesItem} onClick={this.requestItem.bind(this)}></img>
-    )
-  }
+  return (
+    <img src="http://placekitten.com/200/250" style={stylesItem} onClick={requestItem.bind(this)}></img>
+  )
 }
 
 export default Item;
