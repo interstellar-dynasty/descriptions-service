@@ -2,7 +2,8 @@ const express = require('express')
 const app = express()
 const bodyParser = require ('body-parser')
 const db = require('./database/db.js')
-const seeder = require('./database/seeder.js').seeder;
+const seeder = require('./database/seeder.js').seeder
+const pic = require('./database/picdb.js')
 
 app.use('/', express.static('./public/client/dist'))
 app.use('/desc', express.static('./server/database'))
@@ -30,5 +31,7 @@ app.get('/desc/:key', (req, res) => {
     }
   })
 })
+
+app.get('')
 
 app.listen(4000, () => console.log('Server running on port 4000'))
