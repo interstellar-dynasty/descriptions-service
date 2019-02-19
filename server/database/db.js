@@ -1,8 +1,8 @@
 const mongoose = require('mongoose')
 const seeder = require('./seeder.js').seeder
 //mongoose.connect('mongodb://localhost/descriptions', { useNewUrlParser: true }); //local
-mongoose.connect('mongodb://test:testing123@ds127655.mlab.com:27655/descriptions', { useNewUrlParser: true }) //mLab
-let db = mongoose.connection;
+let db = mongoose.createConnection('mongodb://test:testing123@ds127655.mlab.com:27655/descriptions', { useNewUrlParser: true }) //mLab
+//let db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log('we\'re connected!');
@@ -16,7 +16,7 @@ const schema = new mongoose.Schema({
   multiverseId: 'String'
 });
 
-const Items = mongoose.model('Items', schema);
+const Items = db.model('Items', schema);
 
 const random = () => {
   return Math.floor(Math.random() * Math.floor(100));
@@ -27,7 +27,7 @@ const getItem = (callback) => {
     if (err) {
       callback(err);
     } else {
-      //console.log('what is this?', one);
+      console.log('what is this?', one);
       callback(null, one);
     }
   })

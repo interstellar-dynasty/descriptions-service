@@ -19,6 +19,7 @@ class App extends React.Component {
   componentDidMount () {
     Axios.get('/desc')
     .then((datas) => {
+      console.log('what are datas?', datas)
       let title = datas.data.title;
       let text = datas.data.text;
       let flavor = datas.data.flavor;
@@ -30,7 +31,9 @@ class App extends React.Component {
         flavor: flavor,
         multiverseId: multiverseId
       })
-    }).catch((err) => console.log('oh no there was an error in Axios request', err))
+    })
+    .then()
+    .catch((err) => console.log('oh no there was an error in Axios request', err))
   }
 
   newItem (results) {
