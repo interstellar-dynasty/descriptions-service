@@ -19,7 +19,7 @@ class App extends React.Component {
   componentDidMount () {
     Axios.get('/desc')
     .then((datas) => {
-      console.log('what are datas?', datas)
+      //console.log('what are datas?', datas)
       let title = datas.data.title;
       let text = datas.data.text;
       let flavor = datas.data.flavor;

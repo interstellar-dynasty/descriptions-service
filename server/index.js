@@ -16,7 +16,7 @@ app.get('/desc', (req, res) => {
     if (err) {
       console.log('there was an error retrieving data at server', err);
     } else {
-      console.log('what is the one?', one)
+      //console.log('what is the one?', one)
       res.send(one);
     }
   });
@@ -36,6 +36,7 @@ app.get('/desc/:key', (req, res) => {
 
 app.get('/pic/:picKey', (req, res) => {
   let picKey = req.params.picKey;
+  console.log('what is req.params', req.params.picKey)
   pic.getPic(picKey, (err, picUrl) => {
     if (err) {
       console.log('there was an error retrieving picture at server', err);

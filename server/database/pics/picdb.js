@@ -21,6 +21,7 @@ const getPic = (key, callback) => {
     if (err) {
       callback(err);
     } else {
+      //console.log('this is each pic url', pic)
       callback(null, pic);
     }
   })
