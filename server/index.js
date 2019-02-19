@@ -29,14 +29,12 @@ app.get('/desc/:key', (req, res) => {
     if (err) {
       console.log('there was an error retrieving data at server', err);
     } else {
-      console.log('what is the newOne', newOne)
       res.send(newOne);
     }
   })
 })
 
 app.get('/pic/:picKey', (req, res) => {
-  //console.log('look at the request', req.params);
   let picKey = req.params.picKey;
   pic.getPic(picKey, (err, picUrl) => {
     if (err) {

@@ -44,9 +44,9 @@ class Item extends React.Component {
     })
   }
 
-  // componentDidMount () {
-  //   this.getPic()
-  // } //nope...
+  componentDidMount () {
+    this.getPic()
+  } //nope...
 
   render() {
     return (

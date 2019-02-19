@@ -2,8 +2,6 @@ const mongoose = require('mongoose')
 
 let p = mongoose.createConnection('mongodb+srv://laura:laura@fecamazonpicturedatabase-bcucz.mongodb.net/test?retryWrites=true', { useNewUrlParser: true })
 
-//let p = mongoose.connection;
-
 p.on('error', console.error.bind(console, 'connection error:'));
 p.once('open', function() {
   console.log('we\'re connected to the pictures');
