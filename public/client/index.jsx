@@ -60,7 +60,7 @@ class App extends React.Component {
         flavor={this.state.flavor} 
         multiverseId={this.state.multiverseId}/>
       </div>
-      <div>
+      <div id="similar">
         <SimilarItems newItem={this.newItem.bind(this)}/>
       </div>
     </div>
@@ -70,3 +70,7 @@ class App extends React.Component {
 ReactDOM.render(
   <App />,
   document.getElementById("desc"));
+
+// ReactDOM.render(
+//   <SimilarItems newItem={this.newItem.bind(this)}/>,
+//   document.getElementById("desc"));

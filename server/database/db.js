@@ -21,8 +21,8 @@ const random = () => {
   return Math.floor(Math.random() * Math.floor(100));
 }
 
-const getItem = (callback) => {
-  Items.findOne( {"key": random() }, function(err, one) {
+const getItem = (key, callback) => {
+  Items.findOne( {"key": key }, function(err, one) {
     if (err) {
       callback(err);
     } else {

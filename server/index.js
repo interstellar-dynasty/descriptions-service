@@ -12,7 +12,7 @@ app.use( bodyParser.json() );
 
 app.get('/desc', (req, res) => {
   //db.seed();
-  db.getItem((err, one) => {
+  db.getItem(60, (err, one) => {
     if (err) {
       console.log('there was an error retrieving data at server', err);
     } else {
