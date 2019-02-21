@@ -1,12 +1,14 @@
 {
   "name": "interstellar-dynasty",
   "version": "1.0.0",
-  "description": "",
+  "description": "Miniservice for ecommerce descriptions",
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "react-dev": "webpack -d --watch"
+    "react-dev": "webpack -d --watch",
+    "build": "webpack --config ./webpack.config.js -w --mode production"
+
   },
   "repository": {
     "type": "git",
@@ -27,7 +29,13 @@
     "path": "^0.12.7",
     "react": "^16.8.1",
     "react-dom": "^16.8.1",
-    "request": "^2.88.0"
+    "request": "^2.88.0",
+    "@babel/core": "^7.2.2",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3"
   },
   "devDependencies": {
     "@babel/core": "^7.2.2",
