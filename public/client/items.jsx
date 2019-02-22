@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import Item from './item.jsx';
 
 const stylesParent = {
@@ -29,7 +30,7 @@ const stylesItems = {
   justifySelf: 'center'
 };
 
-const SimilarItems = (props) => {
+const Items = (props) => {
   const renderIt = [0, 1, 2, 3, 4, 5];
 
   const random = () => {
@@ -51,4 +52,4 @@ const SimilarItems = (props) => {
 )
 }
 
-export default SimilarItems;
+export default Items;

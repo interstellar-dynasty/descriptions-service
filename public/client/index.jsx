@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Axios from 'axios';
 import Descriptions from './description.jsx';
-import SimilarItems from './similarItems.jsx';
+import Items from './items.jsx';
 
 
 class App extends React.Component {
@@ -52,7 +52,6 @@ class App extends React.Component {
 
   render() {
     return (
-    <div>
       <div id="descriptions">
         <Descriptions 
         title={this.state.title}
@@ -60,9 +59,29 @@ class App extends React.Component {
         flavor={this.state.flavor} 
         multiverseId={this.state.multiverseId}/>
       </div>
-      <div className="items" id="similar">
-        <SimilarItems newItem={this.newItem.bind(this)}/>
-      </div>
+  )}
+}
+
+class SimilarItems extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      key: 60
+    }
+  }
+
+  newItem (results) {
+    let key = results.data.key;
+
+    this.setState({
+      key: results.data.key
+    })
+  }
+
+  render() {
+    return (
+    <div>
+      <Items newItem={this.newItem.bind(this)}/>
     </div>
   )}
 }
@@ -70,4 +89,8 @@ class App extends React.Component {
 ReactDOM.render(
   <App />,
   document.getElementById("desc"));
+
+ReactDOM.render(
+  <SimilarItems />,
+  document.getElementById("similar"));
 

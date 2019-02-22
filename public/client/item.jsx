@@ -11,7 +11,6 @@ class Item extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      itemKey: this.props.itemKey,
       picUrl: ''
     }
   }
@@ -27,7 +26,6 @@ class Item extends React.Component {
     })
     .catch((err) => console.log('error in Axios requestItem', err))
   }
-  //could send a put request?
 
   getPic () {
     let url = `/pic/${this.props.itemKey}`;
@@ -35,12 +33,24 @@ class Item extends React.Component {
     .then((results) =>  {
       //console.log('look at our results!', results.data.url)
       let picUrl = results.data.url;
+      //this is that cool pic url for default if need be
+      //this.setState({
+        //'https://picture-service-fec-bucket.s3.amazonaws.com/folder91/Pillars of Creation.jpg'
       //console.log('look at the pic urls', picUrl)
-      this.setState({
-        picUrl: picUrl
-      })
+      if (picUrl) {
+        this.setState({
+          picUrl: picUrl
+        })
+      } else {
+        this.getPic()
+      }
     })
   }
+
+  componentDidMount() {
+    this.getPic()
+  }
+
 
   componentDidUpdate(prevProps) {
     if (this.props.itemKey !== prevProps.itemKey) {
