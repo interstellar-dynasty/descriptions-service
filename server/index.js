@@ -23,7 +23,7 @@ app.get('/desc', (req, res) => {
 })
 
 app.get('/desc/:key', (req, res) => {
-  console.log('look at the request', req.params);
+  //console.log('look at the request', req.params);
   let key = req.params.key;
   db.getNewItem(key, (err, newOne) => {
     if (err) {
@@ -36,7 +36,7 @@ app.get('/desc/:key', (req, res) => {
 
 app.get('/pic/:picKey', (req, res) => {
   let picKey = req.params.picKey;
-  console.log('what is req.params', req.params.picKey)
+  //console.log('what is req.params', req.params.picKey)
   pic.getPic(picKey, (err, picUrl) => {
     if (err) {
       console.log('there was an error retrieving picture at server', err);

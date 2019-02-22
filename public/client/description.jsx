@@ -1,9 +1,7 @@
 import React from 'react';
 
 const stylesParent = {
-  display: 'grid',
-  gridTemplateColumns: '50% auto 25%',
-  gridAutoFlow: 'row',
+  flex: 1,
   justifyItems: 'center'
 }
 

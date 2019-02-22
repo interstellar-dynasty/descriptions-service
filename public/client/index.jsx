@@ -53,14 +53,14 @@ class App extends React.Component {
   render() {
     return (
     <div>
-      <div>
+      <div id="descriptions">
         <Descriptions 
         title={this.state.title}
         text={this.state.text} 
         flavor={this.state.flavor} 
         multiverseId={this.state.multiverseId}/>
       </div>
-      <div id="similar">
+      <div className="items" id="similar">
         <SimilarItems newItem={this.newItem.bind(this)}/>
       </div>
     </div>
@@ -71,6 +71,3 @@ ReactDOM.render(
   <App />,
   document.getElementById("desc"));
 
-// ReactDOM.render(
-//   <SimilarItems newItem={this.newItem.bind(this)}/>,
-//   document.getElementById("desc"));
