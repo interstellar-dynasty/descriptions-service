@@ -27,6 +27,7 @@ class Item extends React.Component {
     })
     .catch((err) => console.log('error in Axios requestItem', err))
   }
+  //could send a put request?
 
   getPic () {
     let url = `/pic/${this.props.itemKey}`;

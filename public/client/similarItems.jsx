@@ -2,12 +2,7 @@ import React from 'react';
 import Item from './item.jsx';
 
 const stylesParent = {
-  margin: '1%',
-  display: 'grid',
-  gridAutoFlow: 'row column',
-  gridColumnGap: '10px',
-  gridRowGap: '10px',
-  justifyItems: 'center'
+  //flex: 2,
 };
 
 const stylesDivider = {
