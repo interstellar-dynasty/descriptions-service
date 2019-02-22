@@ -14,35 +14,29 @@ app.get('/desc', (req, res) => {
   //db.seed();
   db.getItem(60, (err, one) => {
     if (err) {
-      console.log('there was an error retrieving data at server', err);
-    } else {
-      //console.log('what is the one?', one)
-      res.send(one);
-    }
+      throw err;
+    } 
+    res.send(one);
   });
 })
 
 app.get('/desc/:key', (req, res) => {
-  //console.log('look at the request', req.params);
   let key = req.params.key;
   db.getNewItem(key, (err, newOne) => {
     if (err) {
-      console.log('there was an error retrieving data at server', err);
-    } else {
-      res.send(newOne);
+      throw err;
     }
+    res.send(newOne);
   })
 })
 
 app.get('/pic/:picKey', (req, res) => {
   let picKey = req.params.picKey;
-  //console.log('what is req.params', req.params.picKey)
   pic.getPic(picKey, (err, picUrl) => {
     if (err) {
-      console.log('there was an error retrieving picture at server', err);
-    } else {
-      res.send(picUrl);
+      throw err;
     }
+    res.send(picUrl);
   })
 })
 

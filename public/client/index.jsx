@@ -19,7 +19,6 @@ class App extends React.Component {
   componentDidMount () {
     Axios.get('/desc')
     .then((datas) => {
-      //console.log('what are datas?', datas)
       let title = datas.data.title;
       let text = datas.data.text;
       let flavor = datas.data.flavor;
@@ -36,7 +35,7 @@ class App extends React.Component {
     .catch((err) => console.log('oh no there was an error in Axios request', err))
   }
 
-  newItem (results) {
+  newDescription (results) {
     let title = results.data.title;
     let text = results.data.text;
     let flavor = results.data.flavor;
@@ -52,7 +51,7 @@ class App extends React.Component {
 
   render() {
     return (
-      <div id="descriptions">
+      <div>
         <Descriptions 
         title={this.state.title}
         text={this.state.text} 
@@ -61,6 +60,7 @@ class App extends React.Component {
       </div>
   )}
 }
+
 
 class SimilarItems extends React.Component {
   constructor(props) {
@@ -72,7 +72,6 @@ class SimilarItems extends React.Component {
 
   newItem (results) {
     let key = results.data.key;
-
     this.setState({
       key: results.data.key
     })

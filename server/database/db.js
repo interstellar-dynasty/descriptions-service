@@ -17,16 +17,11 @@ const schema = new mongoose.Schema({
 
 const Items = db.model('Items', schema);
 
-const random = () => {
-  return Math.floor(Math.random() * Math.floor(100));
-}
-
 const getItem = (key, callback) => {
   Items.findOne( {"key": key }, function(err, one) {
     if (err) {
       callback(err);
     } else {
-      //console.log('what is this?', one);
       callback(null, one);
     }
   })
@@ -42,7 +37,6 @@ const getNewItem = (key, callback) => {
     }
   })
 }
-
 
 const seed = () => {
   seeder((datas) => {
