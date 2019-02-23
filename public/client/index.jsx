@@ -17,6 +17,26 @@ class App extends React.Component {
   }
 
   componentDidMount () {
+    window.addEventListener('newPage', (event) => {
+      let key = event.detail
+      Axios.get(`/desc/${key}`)
+    .then((datas) => {
+      let title = datas.data.title;
+      let text = datas.data.text;
+      let flavor = datas.data.flavor;
+      let multiverseId = datas.data.multiverseId;
+
+      this.setState({
+        title: title,
+        text: text,
+        flavor: flavor,
+        multiverseId: multiverseId
+      })
+    })
+    .then()
+    .catch((err) => console.log('oh no there was an error in Axios request', err))
+    }, false);
+
     Axios.get('/desc')
     .then((datas) => {
       let title = datas.data.title;

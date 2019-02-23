@@ -7,6 +7,13 @@ const stylesItem = {
   width: '200px'
 };
 
+//window.addEventListener("clickity", function(e) { process(e.detail) });
+
+const newPage = (item) => {
+  const event = new CustomEvent('newPage', { detail: item });
+  window.dispatchEvent(event);
+}
+
 class Item extends React.Component {
   constructor(props) {
     super(props)
@@ -20,6 +27,7 @@ class Item extends React.Component {
     //console.log(this.props)
     let url = `/desc/${this.props.itemKey}`;
     console.log(`you clicked key ${this.props.itemKey}`);
+    newPage(this.props.itemKey);
     Axios.get(url)
     .then((results) => {
       this.props.newItem(results);
@@ -42,6 +50,9 @@ class Item extends React.Component {
           picUrl: picUrl
         })
       } else {
+        // this.setState({
+        //   picUrl: 'https://picture-service-fec-bucket.s3.amazonaws.com/folder91/Pillars of Creation.jpg'
+        // })
         this.getPic()
       }
     })
