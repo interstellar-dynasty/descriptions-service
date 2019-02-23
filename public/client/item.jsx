@@ -4,10 +4,8 @@ import Axios from 'axios';
 const stylesItem = {
   margin: '10px',
   height: '200px',
-  width: '200px'
+  width: '200px',
 };
-
-//window.addEventListener("clickity", function(e) { process(e.detail) });
 
 const newPage = (item) => {
   const event = new CustomEvent('newPage', { detail: item });
@@ -45,14 +43,11 @@ class Item extends React.Component {
       //this.setState({
         //'https://picture-service-fec-bucket.s3.amazonaws.com/folder91/Pillars of Creation.jpg'
       //console.log('look at the pic urls', picUrl)
-      if (picUrl) {
+      if (picUrl !== '') {
         this.setState({
           picUrl: picUrl
         })
       } else {
-        // this.setState({
-        //   picUrl: 'https://picture-service-fec-bucket.s3.amazonaws.com/folder91/Pillars of Creation.jpg'
-        // })
         this.getPic()
       }
     })

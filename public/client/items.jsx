@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import Item from './item.jsx';
 
 const stylesParent = {
-  //flex: 2,
+  gridAutoFlow: 'column'
 };
 
 const stylesDivider = {
@@ -25,10 +25,18 @@ const stylesHeader = {
 };
 
 const stylesItems = {
-  gridColumnStart: 1,
+  gridAutoFlow: 'Column',
   gridRowStart: 6,
-  justifySelf: 'center'
+  marginLeft: '3%',
+  marginRight: '3%'
 };
+
+const arrows = {
+  width: '20px',
+  height: '20px',
+  justifySelf: 'end',
+  alignSelf: 'center'
+}
 
 const Items = (props) => {
   const renderIt = [0, 1, 2, 3, 4, 5];
@@ -45,8 +53,8 @@ const Items = (props) => {
       {renderIt.map((item, i) => {
         return(
           <Item newItem={props.newItem} itemKey={random()} key={i} />
+          )}
         )}
-      )}
     </div>
   </div>
 )
