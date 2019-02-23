@@ -27,16 +27,10 @@ const stylesHeader = {
 const stylesItems = {
   gridAutoFlow: 'Column',
   gridRowStart: 6,
-  marginLeft: '3%',
-  marginRight: '3%'
+  width: '1320px',
+  marginLeft: 'auto',
+  marginRight: 'auto'
 };
-
-const arrows = {
-  width: '20px',
-  height: '20px',
-  justifySelf: 'end',
-  alignSelf: 'center'
-}
 
 const Items = (props) => {
   const renderIt = [0, 1, 2, 3, 4, 5];
