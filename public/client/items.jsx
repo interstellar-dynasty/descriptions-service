@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Item from './item.jsx';
 
 const stylesParent = {
@@ -33,11 +32,12 @@ const stylesItems = {
 };
 
 const Items = (props) => {
-  const renderIt = [0, 1, 2, 3, 4, 5];
 
   const random = () => {
     return Math.floor(Math.random() * Math.floor(100));
   }
+
+  const renderIt = [0, 1, 2, 3, 4, 5];
   
   return (
   <div style={stylesParent}>
