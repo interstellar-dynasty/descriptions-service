@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Axios from 'axios';
 import Descriptions from './description.jsx';
-import SimilarItems from './similarItems.jsx';
+import Items from './items.jsx';
 
 
 class App extends React.Component {
@@ -17,9 +17,28 @@ class App extends React.Component {
   }
 
   componentDidMount () {
+    window.addEventListener('newPage', (event) => {
+      let key = event.detail
+      Axios.get(`/desc/${key}`)
+    .then((datas) => {
+      let title = datas.data.title;
+      let text = datas.data.text;
+      let flavor = datas.data.flavor;
+      let multiverseId = datas.data.multiverseId;
+
+      this.setState({
+        title: title,
+        text: text,
+        flavor: flavor,
+        multiverseId: multiverseId
+      })
+    })
+    .then()
+    .catch((err) => console.log('oh no there was an error in Axios request', err))
+    }, false);
+
     Axios.get('/desc')
     .then((datas) => {
-      //console.log('what are datas?', datas)
       let title = datas.data.title;
       let text = datas.data.text;
       let flavor = datas.data.flavor;
@@ -36,7 +55,7 @@ class App extends React.Component {
     .catch((err) => console.log('oh no there was an error in Axios request', err))
   }
 
-  newItem (results) {
+  newDescription (results) {
     let title = results.data.title;
     let text = results.data.text;
     let flavor = results.data.flavor;
@@ -52,17 +71,36 @@ class App extends React.Component {
 
   render() {
     return (
-    <div>
-      <div id="descriptions">
+      <div>
         <Descriptions 
         title={this.state.title}
         text={this.state.text} 
         flavor={this.state.flavor} 
         multiverseId={this.state.multiverseId}/>
       </div>
-      <div className="items" id="similar">
-        <SimilarItems newItem={this.newItem.bind(this)}/>
-      </div>
+  )}
+}
+
+
+class SimilarItems extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      key: 60
+    }
+  }
+
+  newItem (results) {
+    let key = results.data.key;
+    this.setState({
+      key: results.data.key
+    })
+  }
+
+  render() {
+    return (
+    <div>
+      <Items newItem={this.newItem.bind(this)}/>
     </div>
   )}
 }
@@ -70,4 +108,8 @@ class App extends React.Component {
 ReactDOM.render(
   <App />,
   document.getElementById("desc"));
+
+ReactDOM.render(
+  <SimilarItems />,
+  document.getElementById("similar"));
 

@@ -4,7 +4,7 @@ let p = mongoose.createConnection('mongodb+srv://laura:laura@fecamazonpicturedat
 
 p.on('error', console.error.bind(console, 'connection error:'));
 p.once('open', function() {
-  console.log('we\'re connected to the pictures');
+  console.log('pictures connected');
 });
 
 const schema = new mongoose.Schema({ 
@@ -21,7 +21,6 @@ const getPic = (key, callback) => {
     if (err) {
       callback(err);
     } else {
-      //console.log('this is each pic url', pic)
       callback(null, pic);
     }
   })

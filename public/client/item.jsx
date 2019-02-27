@@ -4,43 +4,52 @@ import Axios from 'axios';
 const stylesItem = {
   margin: '10px',
   height: '200px',
-  width: '200px'
+  width: '200px',
 };
+
+const newPage = (item) => {
+  const event = new CustomEvent('newPage', { detail: item });
+  window.dispatchEvent(event);
+}
 
 class Item extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
-      itemKey: this.props.itemKey,
       picUrl: ''
     }
   }
 
   requestItem (e) {
     e.preventDefault()
-    //console.log(this.props)
     let url = `/desc/${this.props.itemKey}`;
-    console.log(`you clicked key ${this.props.itemKey}`);
+    newPage(this.props.itemKey);
     Axios.get(url)
     .then((results) => {
       this.props.newItem(results);
     })
     .catch((err) => console.log('error in Axios requestItem', err))
   }
-  //could send a put request?
 
   getPic () {
     let url = `/pic/${this.props.itemKey}`;
     Axios.get(url)
     .then((results) =>  {
-      //console.log('look at our results!', results.data.url)
       let picUrl = results.data.url;
-      //console.log('look at the pic urls', picUrl)
-      this.setState({
-        picUrl: picUrl
-      })
+      if (picUrl !== '') {
+        this.setState({
+          picUrl: picUrl
+        })
+      } else {
+        this.getPic()
+      }
     })
   }
+
+  componentDidMount() {
+    this.getPic()
+  }
+
 
   componentDidUpdate(prevProps) {
     if (this.props.itemKey !== prevProps.itemKey) {

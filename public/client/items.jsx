@@ -2,7 +2,7 @@ import React from 'react';
 import Item from './item.jsx';
 
 const stylesParent = {
-  //flex: 2,
+  gridAutoFlow: 'column'
 };
 
 const stylesDivider = {
@@ -24,17 +24,20 @@ const stylesHeader = {
 };
 
 const stylesItems = {
-  gridColumnStart: 1,
+  gridAutoFlow: 'Column',
   gridRowStart: 6,
-  justifySelf: 'center'
+  width: '1320px',
+  marginLeft: 'auto',
+  marginRight: 'auto'
 };
 
-const SimilarItems = (props) => {
-  const renderIt = [0, 1, 2, 3, 4, 5];
+const Items = (props) => {
 
   const random = () => {
     return Math.floor(Math.random() * Math.floor(100));
   }
+
+  const renderIt = [0, 1, 2, 3, 4, 5];
   
   return (
   <div style={stylesParent}>
@@ -44,11 +47,11 @@ const SimilarItems = (props) => {
       {renderIt.map((item, i) => {
         return(
           <Item newItem={props.newItem} itemKey={random()} key={i} />
+          )}
         )}
-      )}
     </div>
   </div>
 )
 }
 
-export default SimilarItems;
+export default Items;
