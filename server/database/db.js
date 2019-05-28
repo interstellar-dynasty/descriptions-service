@@ -1,7 +1,12 @@
 const mongoose = require('mongoose')
 const seeder = require('./seeder.js').seeder
+// const path = require('path');
+// require('dotenv').config(path.join(__dirname, ".env"));
+const dotenv = require('dotenv');
+dotenv.config();
+console.log('url', process.env.DESC_CONN)
 //mongoose.connect('mongodb://localhost/descriptions', { useNewUrlParser: true }); //local
-let db = mongoose.createConnection('mongodb://test:testing123@ds127655.mlab.com:27655/descriptions', { useNewUrlParser: true }) //mLab
+let db = mongoose.createConnection(`${process.env.DESC_CONN}`, { useNewUrlParser: true }) //mLab
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function() {
   console.log('we\'re connected!');

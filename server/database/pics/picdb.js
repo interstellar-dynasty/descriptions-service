@@ -1,6 +1,10 @@
 const mongoose = require('mongoose')
+const dotenv = require('dotenv');
+const path = require('path');
+require('dotenv').config(path.join(__dirname, "../.env"));
+console.log('pic url', process.env.PIC_CONN)
 
-let p = mongoose.createConnection('mongodb+srv://laura:laura@fecamazonpicturedatabase-bcucz.mongodb.net/test?retryWrites=true', { useNewUrlParser: true })
+let p = mongoose.createConnection(`${process.env.PIC_CONN}`, { useNewUrlParser: true })
 
 p.on('error', console.error.bind(console, 'connection error:'));
 p.once('open', function() {
